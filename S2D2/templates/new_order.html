@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav
+        style="margin-bottom: 20px;font-family: Arial, sans-serif; display: flex; justify-content: center; padding-top: 5px;">
+        <a href="/view_dishes"
+            style="text-decoration: none; margin: 10px; padding: 5px 10px; background-color: #4CAF50; color: white; border-radius: 5px;">View
+            Dishes</a>
+        <a href="/dishes"
+            style="text-decoration: none; margin: 10px; padding: 5px 10px; background-color: #4CAF50; color: white; border-radius: 5px;">Add
+            Dish</a>
+        <a href="/new_order"
+            style="text-decoration: none; margin: 10px; padding: 5px 10px; background-color: #4CAF50; color: white; border-radius: 5px;">New
+            Order</a>
+        <a href="/view_orders"
+            style="text-decoration: none; margin: 10px; padding: 5px 10px; background-color: #4CAF50; color: white; border-radius: 5px;">View
+            Orders</a>
+    </nav>
+    <h1 style="text-align: center; font-family: Arial, sans-serif; color: #333;">Take Order</h1>
+
+    <form accept="/add_Order" method="POST"
+        style="max-width: 400px; margin: 0 auto; background: #f9f9f9; padding: 20px; border-radius: 10px;">
+        <label for="name" style="font-weight: bold;">Customer Name:</label>
+        <input type="text" id="name" name="name"
+            style="width: 95%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+
+        <div style="display: grid; grid-template-columns: 60% 25%; justify-content: space-between; padding-right: 5%;">
+            <label for="dish" style="font-weight: bold;">Dish</label>
+            <label for="quantity" style="font-weight: bold;">Quantity</label>
+            <select id="dish" name="dish" placeholder="e.g. Dosa"
+                style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                {% for dish in dishes %}
+                <option value="{{dish.name}}">{{dish.name}}</option>
+                {% endfor %}
+            </select>
+            <input type="number" id="quantity" name="quantity" placeholder="e.g. 1"
+                style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+
+        <input type="submit" value="ADD Order"
+            style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; width: 100%;">
+    </form>
+
+</body>
+
+</html>

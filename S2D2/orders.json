@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "karan",
+        "dish": "Dhosa",
+        "quantity": 1,
+        "status": "On_the_way",
+        "price": 50.0
+    },
+    {
+        "id": 2,
+        "name": "ram",
+        "dish": "poha",
+        "quantity": 2,
+        "status": "received",
+        "price": 40.0
+    },
+    {
+        "id": 3,
+        "name": "vijay",
+        "dish": "Dhosa",
+        "quantity": 1,
+        "status": "preparing",
+        "price": 50.0
+    },
+    {
+        "id": 4,
+        "name": "sama",
+        "dish": "Dhosa",
+        "quantity": 10,
+        "status": "delivered",
+        "price": 500.0
+    },
+    {
+        "id": 5,
+        "name": "karan123",
+        "dish": "Rice",
+        "quantity": 1,
+        "status": "delivered",
+        "price": "50.0"
+    }
+]

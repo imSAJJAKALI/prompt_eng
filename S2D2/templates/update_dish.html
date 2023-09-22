@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Dish</title>
+</head>
+<body style="font-family: Arial, sans-serif; padding: 20px; padding-top: 0px;">
+    <nav style="margin-bottom: 20px; display: flex; justify-content: center;">
+        <a href="/view_dishes" style="text-decoration: none; margin: 10px; padding: 5px 10px; background-color: #4CAF50; color: white; border-radius: 5px;">View Dishes</a>
+        <a href="/dishes" style="text-decoration: none; margin: 10px; padding: 5px 10px; background-color: #4CAF50; color: white; border-radius: 5px;">Add Dish</a>
+        <a href="/new_order" style="text-decoration: none; margin: 10px; padding: 5px 10px; background-color: #4CAF50; color: white; border-radius: 5px;">New Order</a>
+        <a href="/view_orders" style="text-decoration: none; margin: 10px; padding: 5px 10px; background-color: #4CAF50; color: white; border-radius: 5px;">View Orders</a>
+    </nav>
+
+    <h1 style="color: #333; text-align: center;">Add a New Dish</h1>
+    
+    <form action="/update_dishes/{{dish.id}}" method="POST" id="updateForm" style="max-width: 400px; margin: 0 auto; background: #f9f9f9; padding: 20px; border-radius: 10px;">
+
+        <label for="id" style="display: block; font-weight: bold; margin-bottom: 5px;">Name:</label>
+        <input type="text" id="id" name="id" value="{{dish.id}}"  style="width: 96%; padding: 8px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px;" disabled><br>
+
+        <label for="name" style="display: block; font-weight: bold; margin-bottom: 5px;">Name:</label>
+        <input type="text" id="name" name="name" value="{{dish.name}}" style="width: 96%; padding: 8px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px;" required><br>
+
+        <label for="price" style="display: block; font-weight: bold; margin-bottom: 5px;">Price:</label>
+        <input type="number" id="price" name="price" step="0.01" value="{{dish.price}}" style="width: 96%; padding: 8px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px;" required><br>
+
+        <div style="display: flex; gap:20px">
+            <label for="availability" style="display: block; font-weight: bold; margin-bottom: 5px;">Availability:</label>
+            <input type="checkbox" id="availability" name="availability"  style="margin-bottom: 10px;">
+        </div>
+        <br>
+
+        <input type="submit" value="Submit" style="background: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; width: 100%;">
+    </form>
+
+</body>
+<script>
+    document.getElementById('updateForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+    
+        var form = event.target;
+        var formData = new FormData(form);
+    
+        fetch(form.action, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+            },
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            window.location.href = '/view_dishes'; // Redirect after successful update
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+    </script>
+</html>

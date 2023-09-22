@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Dhosa",
+        "price": 30.0,
+        "availability": true
+    },
+    {
+        "id": 2,
+        "name": "Poha",
+        "price": "20.0",
+        "availability": true
+    },
+    {
+        "id": 3,
+        "name": "Rice",
+        "price": "50.0",
+        "availability": false
+    }
+]

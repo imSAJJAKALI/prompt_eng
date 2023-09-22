@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Dishes</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; text-align: center; padding: 20px;">
+    <nav style="margin-bottom: 20px;">
+        <a href="/view_dishes" style="text-decoration: none; margin: 10px; padding: 5px 10px; background-color: #4CAF50; color: white; border-radius: 5px;">View Dishes</a>
+        <a href="/dishes" style="text-decoration: none; margin: 10px; padding: 5px 10px; background-color: #4CAF50; color: white; border-radius: 5px;">Add Dish</a>
+        <a href="/new_order" style="text-decoration: none; margin: 10px; padding: 5px 10px; background-color: #4CAF50; color: white; border-radius: 5px;">New Order</a>
+        <a href="/view_orders" style="text-decoration: none; margin: 10px; padding: 5px 10px; background-color: #4CAF50; color: white; border-radius: 5px;">View Orders</a>
+    </nav>
+
+    <h1 style="color: #333;">Orders</h1>
+    <form action="/view_orders" method="GET" style="margin-bottom: 10px;">
+        <select name="status" id="status" style="width: 200px;font-size: 25px; ">
+            <option value=""></option>
+            <option value="received">Received</option>
+            <option value="preparing">Preparing</option>
+            <option value="On_the_way">On the way</option>
+            <option value="delivered">Delivered</option>
+        </select>
+        <input type="submit" value="Filter" style="color: white; background-color: orange; border: none; padding: 5px 10px;font-size: 23px;">
+    </form>
+    <table style="width: 80%; margin: 0 auto; border-collapse: collapse; border: 1px solid #ccc;">
+        <thead style="background: #f9f9f9;">
+            <tr>
+                <th style="padding: 10px;">Customer</th>
+                <th style="padding: 10px;">Dish</th>
+                <th style="padding: 10px;">Quantity</th>
+                <th style="padding: 10px;">Price</th>
+                <th style="padding: 10px;">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td style="padding: 10px;">{{ order.name }} </td>
+                <td style="padding: 10px;">{{ order.dish }}</td>
+                <td style="padding: 10px;" >{{ order.quantity}}</td>
+                <td style="padding: 10px;" >{{ order.price}}</td>
+                <td style="padding: 10px;" ><b>{{ order.status}}</b><button onclick="updateDish('{{order.id}}')" style="padding: 5px 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; margin-left: 10px;">Update</button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+<script>
+    function updateDish(id) {
+        window.location.href = `/update_Order/${id}`
+    }
+</script>
+
+</html>

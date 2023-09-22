@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Dish</title>
+</head>
+<body style="font-family: Arial, sans-serif; padding: 20px;">
+    <nav style="margin-bottom: 20px; display: flex; justify-content: center;">
+        <nav style="margin-bottom: 20px;">
+            <a href="/view_dishes" style="text-decoration: none; margin: 10px; padding: 5px 10px; background-color: #4CAF50; color: white; border-radius: 5px;">View Dishes</a>
+            <a href="/dishes" style="text-decoration: none; margin: 10px; padding: 5px 10px; background-color: #4CAF50; color: white; border-radius: 5px;">Add Dish</a>
+            <a href="/new_order" style="text-decoration: none; margin: 10px; padding: 5px 10px; background-color: #4CAF50; color: white; border-radius: 5px;">New Order</a>
+            <a href="/view_orders" style="text-decoration: none; margin: 10px; padding: 5px 10px; background-color: #4CAF50; color: white; border-radius: 5px;">View Orders</a>
+        </nav>
+    </nav>
+
+    <h1 style="color: #333; text-align: center;">Add a New Dish</h1>
+
+    <form action="/dishes" method="POST" style="max-width: 400px; margin: 0 auto; background: #f9f9f9; padding: 20px; border-radius: 10px;">
+
+        <label for="name" style="display: block; font-weight: bold; margin-bottom: 5px;">Name:</label>
+        <input type="text" id="name" name="name" style="width: 96%; padding: 8px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px;" required><br>
+
+        <label for="price" style="display: block; font-weight: bold; margin-bottom: 5px;">Price:</label>
+        <input type="number" id="price" name="price" step="0.01" style="width: 96%; padding: 8px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px;" required><br>
+
+        <div style="display: flex; gap:20px">
+            <label for="availability" style="display: block; font-weight: bold; margin-bottom: 5px;">Availability:</label>
+            <input type="checkbox" id="availability" name="availability" value="true" style="margin-bottom: 10px;">
+        </div>
+        <br>
+
+        <input type="submit" value="Submit" style="background: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; width: 100%;">
+    </form>
+
+</body>
+</html>

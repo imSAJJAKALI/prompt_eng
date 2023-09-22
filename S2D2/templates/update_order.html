@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav
+        style=" font-family: Arial, sans-serif;margin-bottom: 20px; display: flex; justify-content: center; padding-top: 20px;">
+        <nav style="margin-bottom: 20px;">
+            <a href="/view_dishes"
+                style="text-decoration: none; margin: 10px; padding: 5px 10px; background-color: #4CAF50; color: white; border-radius: 5px;">View
+                Dishes</a>
+            <a href="/dishes"
+                style="text-decoration: none; margin: 10px; padding: 5px 10px; background-color: #4CAF50; color: white; border-radius: 5px;">Add
+                Dish</a>
+            <a href="/new_order"
+                style="text-decoration: none; margin: 10px; padding: 5px 10px; background-color: #4CAF50; color: white; border-radius: 5px;">New
+                Order</a>
+            <a href="/view_orders"
+                style="text-decoration: none; margin: 10px; padding: 5px 10px; background-color: #4CAF50; color: white; border-radius: 5px;">View
+                Orders</a>
+        </nav>
+    </nav>
+    <form action="/update_Order/{{order.id}}" method="POST"
+        style="max-width: 400px; margin: 0 auto; background: #f9f9f9; padding: 20px; border-radius: 10px;">
+
+        <label for="" style="font-weight: bold;">Customer:</label>
+        <input type="text" value="{{order.name}}" disabled
+            style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+
+        <label for="" style="font-weight: bold;">Order:</label>
+        <input type="text" value="{{order.dish}}" disabled
+            style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+
+        <label for="" style="font-weight: bold;">Price:</label>
+        <input type="text" value="{{order.price}}" disabled
+            style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+
+        <label for="" style="font-weight: bold;">Status:</label>
+        <select name="status" id="status"
+            style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+            <option value="received">Received</option>
+            <option value="preparing">Preparing</option>
+            <option value="On_the_way">On the way</option>
+            <option value="delivered">Delivered</option>
+        </select>
+
+        <button type="submit"
+            style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">Submit</button>
+
+    </form>
+
+</body>
+
+</html>
